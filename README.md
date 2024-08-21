@@ -1,4 +1,4 @@
-![Logo](assests/logo/logo.png)
+![Logo](assests/images/urban-wheels-logo.jpg)
 
 # Urban Wheels
 
