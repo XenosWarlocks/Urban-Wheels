@@ -18,6 +18,7 @@ import { icons, images } from "@/constants";
 import { useFetch } from "@/lib/fetch";
 import { Ride } from "@/types/type";
 import GoogleTextInput from "@/components/GoogleTextInput";
+import Map from "@/components/Map";
 
 // const {
 //   data: recentRides,
@@ -196,7 +197,7 @@ const Home = () => {
                 Your current location
               </Text>
               <View className="flex flex-row items-center bg-transparent h-[300px]">
-                {/* <Map/> */}
+                <Map/>
               </View>
             </>
             <Text className="text-xl font-JakartaBold mt-5 mb-3">
