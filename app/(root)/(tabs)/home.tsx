@@ -19,6 +19,7 @@ import { useFetch } from "@/lib/fetch";
 import { Ride } from "@/types/type";
 import GoogleTextInput from "@/components/GoogleTextInput";
 import Map from "@/components/Map";
+import { useLocationStore } from "@/store";
 
 // const {
 //   data: recentRides,
@@ -129,7 +130,30 @@ const recentRides = [
 const Home = () => {
   const { user } = useUser();
   const { signOut } = useAuth();
-  // const { setUserLocation, setDestinationLocation } = useLocationStore();
+  const { setUserLocation, setDestinationLocation } = useLocationStore();
+
+  const [hasPermission, setHasPermission] = useState<boolean>(false);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setHasPermission(false);
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      const address = await Location.reverseGeocodeAsync({
+        latitude: location.coords?.latitude,
+        longitude: location.coords?.longitude,
+      });
+      setUserLocation({
+        latitude: location.coords?.latitude,
+        longitude: location.coords?.longitude,
+        address: `${address[0].name}, ${address[0].region}`,
+      });
+    })();
+  }, []);
+
 
   const handleSignOut = () => {
     signOut();
@@ -143,9 +167,10 @@ const Home = () => {
     longitude: number;
     address: string
   }) => {
-    // setDestinationLocation(location);
-    // router.push("/(root)/find-ride")
+    setDestinationLocation(location);
+    router.push("/(root)/find-ride")
   }
+  
   return (
     <SafeAreaView className="bg-general-500">
       <FlatList
