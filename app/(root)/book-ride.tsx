@@ -67,6 +67,13 @@ const BookRide = () => {
                         <Text className="text-lg font-JakartaRegular ml-2">{destinationAddress}</Text>
                     </View>
                 </View>
+                {/* <Payment
+                    fullName={user?.fullName!}
+                    email={user?.emailAddresses[0].emailAddress!}
+                    amount={driverDetails?.price!}
+                    driverId={driverDetails?.id}
+                    rideTime={driverDetails?.time!}
+                /> */}
             </>
         </RideLayout>
     );
