@@ -1,4 +1,4 @@
-import { router } from "expo-router";
+import { Href, router } from "expo-router";
 import { Text, View } from "react-native";
 
 import CustomButton from "@/components/CustomButton";
@@ -43,7 +43,7 @@ const FindRide = () => {
 
       <CustomButton
         title="Find Now"
-        onPress={() => router.push(`/(root)/confirm-ride`)}
+        onPress={() => router.push(`/(root)/confirm-ride` as Href)}
         className="mt-5"
       />
     </RideLayout>

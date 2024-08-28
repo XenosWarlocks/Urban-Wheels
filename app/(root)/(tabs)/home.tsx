@@ -1,7 +1,7 @@
 import { SignedOut, useUser } from "@clerk/clerk-expo";
 import { useAuth } from "@clerk/clerk-expo";
 import * as Location from "expo-location";
-import { router } from "expo-router";
+import { Href, router } from "expo-router";
 import { useState, useEffect } from "react";
 import {
   Text,
@@ -168,7 +168,7 @@ const Home = () => {
     address: string
   }) => {
     setDestinationLocation(location);
-    router.push("/(root)/find-ride")
+    router.push("/(root)/find-ride" as Href)
   }
   
   return (
