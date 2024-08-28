@@ -36,7 +36,7 @@ To set up the project locally, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/YourUsername/Urban-Wheels.git
+    git clone https://github.com/XenosWarlocks/Urban-Wheels.git
     ```
 
 2. Navigate to the project directory:
