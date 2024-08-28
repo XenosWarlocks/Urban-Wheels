@@ -52,9 +52,19 @@ const BookRide = () => {
                         <Text className="text-lg font-JakartaRegular">Pickup Timee</Text>
                         <Text className="text-lg font-JakartaRegular">{formatTime(driverDetails?.time!)}</Text>
                     </View>
-                    <View>
-                        <Text></Text>
-                        <Text></Text>
+                    <View className="flex flex-row items-center justify-between w-full py-3">
+                        <Text className="text-lg font-JakartaRegular">Car Seats</Text>
+                        <Text className="text-lg font-JakartaRegular">{driverDetails?.car_seats}</Text>
+                    </View>
+                </View>
+                <View className="flex flex-col w-full items-start justify-center mt-5">
+                    <View className="flex flex-row items-center justify-start mt-3 border-t border-b border-general-700 w-full py-3">
+                        <Image source={icons.to} className="w-6 h-6"/>
+                        <Text className="text-lg font-JakartaRegular ml-2">{userAddress}</Text>
+                    </View>
+                    <View className="flex flex-row items-center justify-start border-b border-general-700 w-full py-3">
+                        <Image source={icons.to} className="w-6 h-6"/>
+                        <Text className="text-lg font-JakartaRegular ml-2">{destinationAddress}</Text>
                     </View>
                 </View>
             </>
