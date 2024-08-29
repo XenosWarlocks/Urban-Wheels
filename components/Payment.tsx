@@ -1,5 +1,5 @@
 import { useAuth } from "@clerk/clerk-expo";
-// import { useStripe } from "@stripe/stripe-react-native";
+import { useStripe } from "@stripe/stripe-react-native";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Alert, Image, Text, View } from "react-native";
@@ -18,7 +18,7 @@ const Payment = ({
     driverId,
     rideTime,
 }: PaymentProps) => {
-    // const { initPaymentSheet, presentPaymentSheet } = useStripe();
+    const { initPaymentSheet, presentPaymentSheet } = useStripe();
     const {
         userAddress,
         userLongitude,
