@@ -24,4 +24,24 @@ export async function POST(request: Request) {
         });
         customer = newCustomer;
     }
+    const ephemeralKey = await stripe.ephemeralKeys.create(
+        { customer: customer.id },
+        { apiVersion: "2024-06-20" }
+    )
+
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: parseInt(amount) * 100,
+        currency: "inr",
+        customer: customer.id,
+        automatic_payment_methods: {
+            enabled: true,
+            allow_redirects: "never",
+        },
+    });
+
+    return new Response(JSON.stringify({
+        paymentIntent: paymentIntent,
+        ephemeralKey: ephemeralKey,
+        customer: customer.id,
+    }))
 }
