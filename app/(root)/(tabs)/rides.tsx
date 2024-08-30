@@ -8,9 +8,22 @@ import { useFetch } from "@/lib/fetch";
 import { Ride } from "@/types/type";
 
 const Rides = () => {
+    const { user } = useUser();
+    const {
+        data: recentRides,
+        loading,
+        error,
+    } = useFetch<Ride[]>(`/(api)/ride/${user?.id}`);
+
     return (
         <SafeAreaView>
-            <Text>Rides</Text>
+            <FlatList
+                data={recentRides}
+                renderItem={({ item }) => <RideCard ride={item} />}
+                keyExtractor={(item, index) => index.toString()}
+                className="px-5"
+                keyboardShouldPersistTaps="handled"
+            />
         </SafeAreaView>
     )
 }
