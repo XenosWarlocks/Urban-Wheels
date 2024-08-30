@@ -22,6 +22,42 @@ const Profile = () => {
                         className=" rounded-full h-[110px] w-[110px] border-[3px] border-white shadow-sm shadow-neutral-300"
                     />
                 </View>
+                <View className="flex flex-col items-start justify-center bg-white rounded-lg shadow-sm shadow-neutral-300 px-5 py-3">
+                    <View className="flex flex-col items-start justify-start w-full">
+                        <InputField
+                            label="First Name"
+                            placeholder={user?.firstName || "Not Found"}
+                            containerStyle="w-full"
+                            inputStyle="p-3.5"
+                            editable={false}
+                        />
+                        <InputField
+                            label="Last Name"
+                            placeholder={user?.lastName || "Not Found"}
+                            containerStyle="w-full"
+                            inputStyle="p-3.5"
+                            editable={false}
+                        />
+                        <InputField
+                            label="Email"
+                            placeholder={
+                                user?.primaryEmailAddress?.emailAddress || "Not Found"
+                            }
+                            containerStyle="w-full"
+                            inputStyle="p-3.5"
+                            editable={false}
+                        />
+                        <InputField
+                            label="Phone"
+                            placeholder={
+                                user?.primaryPhoneNumber?.phoneNumber || "Not Found"
+                            }
+                            containerStyle="w-full"
+                            inputStyle="p-3.5"
+                            editable={false}
+                        />
+                    </View>
+                </View>
             </ScrollView>
         </SafeAreaView>
     )
