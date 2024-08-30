@@ -23,6 +23,26 @@ const Rides = () => {
                 keyExtractor={(item, index) => index.toString()}
                 className="px-5"
                 keyboardShouldPersistTaps="handled"
+                contentContainerStyle={{
+                    paddingBottom: 100,
+                }}
+                ListEmptyComponent={() => (
+                    <View className="flex flex-col items-center justify-center">
+                        {!loading ? (
+                            <>
+                                <Image
+                                    source={images.noResult}
+                                    className="w-40 h-40"
+                                    alt="No recent rides found"
+                                    resizeMode="contain"
+                                />
+                                <Text className="text-sm">No recent rides found</Text>
+                            </>
+                        ) : (
+                            <ActivityIndicator size="small" color="#000" />
+                        )}
+                    </View>
+                )}
             />
         </SafeAreaView>
     )
