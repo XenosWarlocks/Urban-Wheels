@@ -71,6 +71,8 @@ To set up the project locally, follow these steps:
 
 After setting up the project, you can run it on your preferred mobile platform (iOS or Android). The application provides a full Uber-like experience with map navigation, ride requests, and payment processing.
 
+## Workflow
+![Diagram](assets/workflow/diagram.png)
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to Urban Wheels, please follow these steps:
